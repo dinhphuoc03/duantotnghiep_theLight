@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Du Lịch</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="">
+    <!-- font chữ navbar -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <link rel="stylesheet" href="/css/HomePage.css">
+</head>
+
+<body>
+    <!-- Navbar trên -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">EASY TRAVELS</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto d-flex align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="mailto:your-email@gmail.com">easytravels@gmail.com</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tel:+1234567890">+84 935 111 763</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Login.html">Đăng Nhập</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.html">Đăng Ký</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+
+
+    <!-- Navbar dưới -->
+<nav class="navbar navbar-expand-lg navbar-light navbar-bottom">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="newNavbarNav">
+            <ul class="navbar-nav navbar-left">
+                <li class="nav-item">
+                    <a class="nav-link" href="HomePage.html">TRANG CHỦ</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="GioiThieu.html" id="aboutDropdown" role="button">
+                        GIỚI THIỆU
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="tourDropdown" role="button">
+                        TOUR DU LỊCH
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Đà Nẵng - Hội An</a></li>
+                        <li><a class="dropdown-item" href="#">Suối thần tài - Bà Nà Hills</a></li>
+                        <li><a class="dropdown-item" href="#">Đà Nẵng - Hội An - Huế</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Chữ EasyTravel ở giữa -->
+            <span class="navbar-brand mx-auto bee-travel-logo">EasyTravel</span>
+            <ul class="navbar-nav navbar-right ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="newsDropdown" role="button">
+                        TIN TỨC
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="contactDropdown" role="button">
+                        LIÊN HỆ
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="serviceDropdown" role="button">
+                        DỊCH VỤ
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Đặt phòng Khách Sạn</a></li>
+                        <li><a class="dropdown-item" href="#">Thuê xe</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+    <!-- Navbar lướt xuống hiện -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-scrolled">
+        <div class="container-fluid">
+            <ul class="navbar-nav navbar-left">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Trang Chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="GioiThieu.html">Giới Thiệu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Tour Du Lịch</a>
+                </li>
+            </ul>
+            <span class="navbar-brand mx-auto bee-travel-logo">EasyTravel</span>
+            <ul class="navbar-nav navbar-right ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Tin Tức</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Liên Hệ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Dịch Vụ</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+        <div class="carousel-indicators tp-bullets">
+            <div class="carousel-indicators custom-bullets">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                    class="custom-bullet active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    class="custom-bullet" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    class="custom-bullet" aria-label="Slide 3"></button>
+            </div>
+
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://bizweb.dktcdn.net/100/295/221/themes/894730/assets/slider_1.jpg?1676282758080"
+                    class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <!-- <h5>First slide label</h5> -->
+                    <!-- <p>Some representative placeholder content for the first slide.</p> -->
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://i1-dulich.vnecdn.net/2022/04/02/NhaTrangKhanhHoa-1648888103-7869-1648888250.jpg?w=0&h=0&q=100&dpr=2&fit=crop&s=DaIvzu7tHOfhuT0SzvZlww" height="570px"
+                    class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <!-- <h5>Second slide label</h5> -->
+                    <!-- <p>Some representative placeholder content for the second slide.</p> -->
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://bizweb.dktcdn.net/100/295/221/themes/894730/assets/slider_1.jpg?1676282758080"
+                    class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <!-- <h5>Third slide label</h5> -->
+                    <!-- <p>Some representative placeholder content for the third slide.</p> -->
+                </div>
+            </div>
+        </div>
+
+
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+
+
+
+
+        <!-- phần tìm kiếm -->
+    <div class="search-bar">
+        <div class="search-options">
+            <button class="search-option active" data-search-type="hotel">
+                <i class="fas fa-hotel"></i> Khách sạn
+            </button>
+            <button class="search-option" data-search-type="flight">
+                <i class="fas fa-plane"></i> Thuê xe
+            </button>
+        </div>
+    
+        <!-- Phần Tìm Kiếm Khách Sạn -->
+        <div class="search-content" id="hotel-search">
+            <div class="search-fields">
+                <div class="search-item">
+                    <label><i class="fas fa-map-marker-alt"></i> Địa điểm</label>
+                    <input type="text" placeholder="Thành phố, khách sạn, địa danh">
+                </div>
+                <div class="search-item">
+                    <label><i class="fas fa-calendar-alt"></i> Ngày đến</label>
+                    <input type="date">
+                </div>
+                <div class="search-item">
+                    <label><i class="fas fa-calendar-alt"></i> Ngày về</label>
+                    <input type="date">
+                </div>
+                <div class="search-item">
+                    <label><i class="fas fa-users"></i> Số phòng, số khách</label>
+                    <input type="text" placeholder="1 phòng, 2 người lớn, 0 trẻ em">
+                </div>
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    
+        <!-- Phần Tìm Kiếm Vé Máy Bay -->
+        <div class="search-content" id="flight-search" style="display: none;">
+            <div class="search-fields">
+                <div class="search-item">
+                    <label><i class="fas fa-plane-departure"></i> Từ</label>
+                    <input type="text" placeholder="SGN (Hồ Chí Minh)">
+                </div>
+                <div class="search-item">
+                    <label><i class="fas fa-plane-arrival"></i> Đến</label>
+                    <input type="text" placeholder="Thành phố, sân bay">
+                </div>
+                <div class="search-item">
+                    <label><i class="fas fa-calendar-alt"></i> Ngày đi</label>
+                    <input type="date">
+                </div>
+                <div class="search-item">
+                    <label><i class="fas fa-calendar-alt"></i> Ngày về</label>
+                    <input type="date">
+                </div>
+                <div class="search-item">
+                    <label><i class="fas fa-user"></i> Số khách, hạng ghế</label>
+                    <input type="text" placeholder="1 khách, phổ thông">
+                </div>
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    
+        <!-- Phần Tìm Kiếm Tours & Hoạt Động
+        <div class="search-content" id="tour-search" style="display: none;">
+            <div class="search-fields">
+                <div class="search-item">
+                    <label><i class="fas fa-map-marker-alt"></i> Địa điểm</label>
+                    <input type="text" placeholder="Thành phố, địa điểm du lịch">
+                </div>
+                <div class="search-item">
+                    <label><i class="fas fa-calendar-alt"></i> Ngày đi</label>
+                    <input type="date">
+                </div>
+                <div class="search-item">
+                    <label><i class="fas fa-calendar-alt"></i> Ngày về</label>
+                    <input type="date">
+                </div>
+                <div class="search-item">
+                    <label><i class="fas fa-users"></i> Số khách</label>
+                    <input type="text" placeholder="Số khách">
+                </div>
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    
+        Phần Tìm Kiếm Biệt Thự, Homestay
+        <div class="search-content" id="homestay-search" style="display: none;">
+            <div class="search-fields">
+                <div class="search-item">
+                    <label><i class="fas fa-map-marker-alt"></i> Địa điểm</label>
+                    <input type="text" placeholder="Thành phố, biệt thự, homestay">
+                </div>
+                <div class="search-item">
+                    <label><i class="fas fa-calendar-alt"></i> Ngày đến</label>
+                    <input type="date">
+                </div>
+                <div class="search-item">
+                    <label><i class="fas fa-calendar-alt"></i> Ngày về</label>
+                    <input type="date">
+                </div>
+                <div class="search-item">
+                    <label><i class="fas fa-users"></i> Số phòng, số khách</label>
+                    <input type="text" placeholder="1 phòng, 2 người lớn, 0 trẻ em">
+                </div>
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>   -->
+    </div>
+
+
+
+
+
+
+    <div class="travel-go-container" style="text-align: center;">
+        <div class="travel-go-content">
+            <h2>Hãy chọn Travel Go</h2>
+            <p>1.000 lý do tại sao bạn nên chọn đến với chúng tôi Travel Go, có 1 thế giới tuyệt đẹp quanh ta hãy đến với chúng tôi.</p>
+            <p>Với hơn 16 năm kinh nghiệm tổ chức và triển khai các tour du lịch trong và ngoài nước, chúng tôi cam kết đem lại cho khách hàng những hành trình tuyệt vời và ấn tượng nhất thông qua những dịch vụ chuyên nghiệp mà chúng tôi thực hiện như:</p>
+            
+            <!-- Danh sách các dịch vụ -->
+            <div class="features-container">
+                <ul class="features-list">
+                    <li><i class="fas fa-car"></i> Chuyến xe chất lượng</li>
+                    <li><i class="fas fa-map-marked-alt"></i> Hành trình hấp dẫn</li>
+                    <li><i class="fas fa-tasks"></i> Quản lý chặt chẽ</li>
+                    <li><i class="fas fa-hotel"></i> Khách sạn tiện nghi</li>
+                    <li><i class="fas fa-check-circle"></i> Chất lượng đỉnh cao</li>
+                    <li><i class="fas fa-globe"></i> Hơn 100 tours trong nước</li>
+                </ul>
+            </div>
+        </div>
+        <div class="travel-go-image">
+            <img src="/images/travel.png" alt="Travel Go" style="width: 100%; max-width: 700px; margin-top: 40px;">
+        </div>
+    </div>
+    
+      
+
+
+
+
+
+
+        <!-- Phần tiêu đề và mô tả -->
+        <div class="tour-section-header text-center">
+            <h1>Các Tour nổi bật</h1>
+            <p>(Hãy cùng chúng tôi khám phá, trải nghiệm mọi miền đất nước Việt Nam mến yêu)</p>
+        </div>
+
+        <div class="tour-card-wrapper">
+            <button class="prev-btn">‹</button>
+            <div class="tour-card-container">
+                <div class="tour-card">
+                    <img src="https://sinhcafe-thesinhtourist.vn/wp-content/uploads/2022/12/z4066941851225_dd9ebda4bbb57df0f8568d41c228c73c.jpg" alt="Tour 1">
+                    <div class="caption">
+                        <h3>HÀ GIANG – ĐỒNG VĂN – MÈO VẠC</h3>
+                        <p>Thác Bản Giốc – Lạng Sơn (5N4Đ)</p>
+                    </div>
+                </div>
+                <div class="tour-card">
+                    <img src="https://images.vietnamtourism.gov.vn/vn//images/2019/CNMN/16.10._Thac_Ban_gioc_ve_dep_ky_vi_giua_non_nuoc_cao_bang_3.jpg" alt="Tour 2">
+                    <div class="caption">
+                        <h3>NỘI BÀI – HÀ GIANG</h3>
+                        <p>Đồng Văn – Thác Bản Giốc (5N4Đ)</p>
+                    </div>
+                </div>
+                <div class="tour-card">
+                    <img src="https://imagev3.vietnamplus.vn/w1000/Uploaded/2024/fsmsr/2024_03_26/pho-co-hoi-an-9865.png.webp" alt="Tour 3">
+                    <div class="caption">
+                        <h3>ĐÀ NẴNG – HỘI AN</h3>
+                        <p>HUẾ – QUẢNG BÌNH (4N3Đ)</p>
+                    </div>
+                </div>
+                <div class="tour-card">
+                    <img src="https://vemekong.com/wp-content/uploads/2021/04/cai-rang-floating-market-february-2021-15a.jpg" alt="Tour 4">
+                    <div class="caption">
+                        <h3>AN GIANG –  CHÂU ĐỐC</h3>
+                        <p>CẦN THƠ – CÁI RĂNG</p>
+                    </div>
+                </div>
+                <div class="tour-card">
+                    <img src="https://saigontourist.net/uploads/destination/TrongNuoc/Dalat/DaLat-QuangTruong_1114803884.jpg" alt="Tour 5">
+                    <div class="caption">
+                        <h3>ĐÀ LẠT – LÂM ĐỒNG</h3>
+                        <p>(7N6Đ)</p>
+                    </div>
+                </div>
+                <div class="tour-card">
+                    <img src="https://i1-dulich.vnecdn.net/2022/05/09/amiana-resort-nha-trang-2087-1-9439-2178-1652070682.jpg?w=0&h=0&q=100&dpr=1&fit=crop&s=1JSGnrxCVKlwjL89p_cJxw" alt="Tour 6">
+                    <div class="caption">
+                        <h3>QUY NHƠN – BÌNH ĐỊNH</h3>
+                        <p> NHA TRANG – KHÁNH HÒA(5N4Đ)</p>
+                    </div>
+                </div>
+                <div class="tour-card">
+                    <img src="/images/3.jpg" alt="Tour 7">
+                    <div class="caption">
+                        <h3>CHÂU PHI 6 NƯỚC</h3>
+                        <p>Nam Phi, Kenya (8N7Đ)</p>
+                    </div>
+                </div>
+                <div class="tour-card">
+                    <img src="/images/4.jpg" alt="Tour 8">
+                    <div class="caption">
+                        <h3>CHÂU ĐẠI DƯƠNG</h3>
+                        <p>Úc, New Zealand (5N4Đ)</p>
+                    </div>
+                </div>
+            </div>
+            <button class="next-btn">›</button>
+        </div>
+
+        <!-- Vòng tròn chỉ số -->
+        <div class="tp-bullets">
+            <span class="tp-bullet"></span>
+            <span class="tp-bullet"></span>
+            <span class="tp-bullet"></span>
+            <span class="tp-bullet"></span>
+            <span class="tp-bullet"></span>
+            <span class="tp-bullet"></span>
+            <span class="tp-bullet"></span>
+            <span class="tp-bullet"></span>
+        </div>
+        <a href="#" class="btn-xem-them">
+            Xem Thêm
+            <i></i>
+        </a>
+
+        <!-- Thêm hình ảnh dưới phần khách sạn với liên kết -->
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="https://saigontourist.net/" target="_blank">
+                <img src="https://saigontourist.net/uploads/homepage/3banner/Cambodia-16July.png" alt="Cambodia Banner"
+                    style="width: 100%; max-width: 1200px; height: auto;">
+            </a>
+        </div>
+
+
+        <!-- phan cẩm nâng -->
+        <div class="travel-guide">
+            <h2>Cẩm nang du lịch</h2>
+            <p>Hãy cập nhật thường xuyên</p>
+            <div class="travel-guide-container">
+                <!-- Bài viết 1 -->
+                <div class="travel-guide-item">
+                    <div class="travel-guide-image">
+                        <img src="/images/1.jpg" alt="Hải Phòng - Nha Trang">
+                        <div class="travel-guide-date">
+                            <span>THÁNG</span>
+                            <span>12</span>
+                            <span>2015</span>
+                        </div>
+                    </div>
+                    <h3>Rộn ràng nối tuyến đường bay mới Hải Phòng - Nha Trang</h3>
+                    <p>Ngày 15/11/2015 vừa qua, đường bay mới Hải Phòng - Nha Trang (tỉnh Khánh Hòa) đã chính thức đi
+                        vào hoạt động...</p>
+                    <a href="#">Chi tiết</a>
+                </div>
+                <!-- Bài viết 2 -->
+                <div class="travel-guide-item">
+                    <div class="travel-guide-image">
+                        <img src="/images/2.jpg" alt="Phú Quốc">
+                        <div class="travel-guide-date">
+                            <span>THÁNG</span>
+                            <span>12</span>
+                            <span>2015</span>
+                        </div>
+                    </div>
+                    <h3>Phú Quốc - Đảo ngọc bình yên</h3>
+                    <p>Được ví như thiên đường miền nhiệt đới với nhiều bãi biển hoang sơ đẹp mê hồn, Phú Quốc mang đến
+                        cho bạn một...</p>
+                    <a href="#">Chi tiết</a>
+                </div>
+                <!-- Bài viết 3 -->
+                <div class="travel-guide-item">
+                    <div class="travel-guide-image">
+                        <img src="/images/3.jpg" alt="Hà Nội và TP.HCM">
+                        <div class="travel-guide-date">
+                            <span>THÁNG</span>
+                            <span>12</span>
+                            <span>2015</span>
+                        </div>
+                    </div>
+                    <h3>Hà Nội và TP.HCM - Top 10 thành phố tuyệt vời nhất châu Á</h3>
+                    <p>Vừa qua, tạp chí Travel & Leisure (Mỹ) vừa công bố kết quả bình chọn “Top 10 thành phố tuyệt vời
+                        nhất châu Á”...</p>
+                    <a href="#">Chi tiết</a>
+                </div>
+            </div>
+            <a href="#" class="see-all-link">Xem tất cả ➔</a>
+        </div>
+
+
+
+
+
+        <!-- phan đánh giá -->
+        <div class="customer-contributions">
+            <h2>Đóng góp của khách hàng</h2>
+            <p>Gửi đóng góp để nhận được hỗ trợ</p>
+
+            <div class="contributions-container">
+                <!-- Đánh giá 1 -->
+                <div class="contribution-item">
+                    <div class="contribution-content">
+                        <img src="/images/1.jpg" alt="Jenny">
+                        <div class="contribution-text">
+                            <p>“Tôi và chồng đã được hưởng 1 tuần trăng mật rất vui vẻ với Tour Lãng mạn Paris. Cảm ơn
+                                BizTravel!”</p>
+                            <a href="#">Jenny</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Đánh giá 2 -->
+                <div class="contribution-item">
+                    <div class="contribution-content">
+                        <img src="/images/2.jpg" alt="Nguyễn Thị Huyền Thương">
+                        <div class="contribution-text">
+                            <p>“Chương trình Tour khám phá Cuba rất hấp dẫn. Tôi đã được trải nghiệm nhiều điều thú vị.
+                                Cảm ơn BizTravel.”</p>
+                            <a href="#">Nguyễn Thị Huyền Thương</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form đăng ký email -->
+                <div class="contribution-form">
+                    <p>Nhập địa chỉ email của bạn. Chúng tôi sẽ gửi cho bạn các email về các chương trình khuyến mãi
+                        thường xuyên.</p>
+                    <form>
+                        <input type="email" placeholder="Email nhận tin">
+                        <button type="submit">Gửi</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="destination-section">
+            <h2>ĐIỂM ĐẾN & TRẢI NGHIỆM</h2>
+            <div class="grid-container">
+                <!-- Ảnh lớn bên trái -->
+                <div class="grid-item-large">
+                    <div class="image-wrapper">
+                        <img src="phuquoc.jpg" alt="Phú Quốc">
+                    </div>
+                    <div class="info">
+                        <p class="tag">[Du lịch Việt Nam]</p>
+                        <h3>Khám phá Phú Quốc 3N2Đ: Cáp treo dài nhất thế giới & buffet trưa miễn phí</h3>
+                        <p class="description">Nếu bạn đang tìm kiếm một kỳ nghỉ đáng nhớ với những trải nghiệm độc đáo,
+                            thì tour Phú Quốc 3 ngày 2 đêm của Lữ hành Saigontourist chính là sự lựa chọn...</p>
+                    </div>
+                </div>
+                <!-- Hai ảnh nhỏ bên phải -->
+                <div class="grid-item-small">
+                    <div class="image-wrapper">
+                        <img src="anthem.jpg" alt="Anthem of the Seas">
+                    </div>
+                    <div class="info">
+                        <p class="tag">[Du lịch Singapore]</p>
+                        <h3>Du Thuyền Anthem of the Seas: Hành trình thượng lưu đến Singapore - Malaysia - Thái Lan</h3>
+                        <p class="description">Hãy cùng Lữ hành Saigontourist khám phá những nét độc đáo của “Thành phố
+                            nổi” trên du thuyền hạng sang này nhé!</p>
+                    </div>
+                </div>
+                <div class="grid-item-small">
+                    <div class="image-wrapper">
+                        <img src="korea.jpg" alt="Hàn Quốc">
+                    </div>
+                    <div class="info">
+                        <p class="tag">[Du lịch Hàn Quốc]</p>
+                        <h3>Xin chào mùa thu 2024</h3>
+                        <p class="description">Cùng Lữ hành Saigontourist khám phá một vài tọa độ lãng mạn, mang vẻ đẹp
+                            tinh túy, nguyên sơ của thiên nhiên đã từng xuất hiện trong các bộ phim tình cảm nổi tiếng
+                            nhé!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- <footer>
+        &copy; 2024 Du Lịch. All rights reserved.
+    </footer> -->
+
+
+
+
+
+
+
+
+        <script src="/js/homepage.js"></script>
+</body>
+
+</html>
