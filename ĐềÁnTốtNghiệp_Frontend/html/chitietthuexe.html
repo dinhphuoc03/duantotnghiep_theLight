@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đặt xe</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <!-- font chữ navbar -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+  <style>
+    /* Đặt lại các giá trị mặc định của margin và padding */
+    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            height: 700px;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+
+    /* Phần navbar */
+    .navbar {
+      height: 35px;
+      padding: 0 20px;
+      line-height: 35px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      margin-bottom: 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.3);
+      transition: background-color 0.5s ease;
+      border-bottom: 0.5px solid rgb(205, 201, 201);
+    }
+
+    /* Tùy chỉnh cho các liên kết trong navbar */
+    .navbar-nav .nav-link {
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      height: 100%;
+    }
+
+    /* Tùy chỉnh cho biểu tượng trong các liên kết */
+    .navbar-nav .nav-link i {
+      margin-right: 5px;
+      font-size: 12px;
+    }
+
+    /* Chữ BeeTravel ở giữa */
+    .bee-travel-logo {
+      font-size: 24px;
+      /* Tăng kích thước chữ */
+      font-weight: bold;
+      /* Đặt chữ in đậm */
+      color: rgba(9, 0, 0, 0.9);
+      /* Màu chữ trắng */
+      text-align: center;
+    }
+
+
+    /* navbar dưới */
+    .navbar-bottom {
+      margin-top: 35px;
+      background-color: transparent;
+      /* Không có màu nền */
+      border: none;
+      height: 45px;
+      z-index: 9;
+      padding: 0px 200px 0px 200px;
+      position: fixed;
+      /* Đảm bảo navbar luôn ở vị trí cố định */
+      top: 0;
+      /* Bắt đầu ở trên cùng của trang */
+      width: 100%;
+      /* Để chiếm toàn bộ chiều ngang màn hình */
+      transition: top 0.3s;
+      /* Hiệu ứng chuyển động khi ẩn/hiện navbar */
+    }
+
+    .navbar-bottom .navbar-left,
+    .navbar-bottom .navbar-right {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    .navbar-bottom .navbar-left {
+      justify-content: flex-start;
+      /* Căn trái */
+    }
+
+    .navbar-bottom .navbar-right {
+      justify-content: flex-end;
+      /* Căn phải */
+    }
+
+    .navbar-bottom .navbar-nav .nav-link {
+      color: rgba(12, 1, 1, 0.8);
+      font-size: 15px;
+      margin: 0 20px;
+      /* Điều chỉnh khoảng cách giữa các chữ */
+    }
+
+    .navbar-bottom .navbar-nav .nav-link:hover {
+      color: rgb(10, 0, 0);
+    }
+
+    .navbar-top {
+      transition: top 0.9s;
+    }
+
+    .navbar-bottom {
+      transition: top 0.9s;
+    }
+
+    /* Navbar lướt xuống hiện */
+    .navbar-scrolled {
+      display: none;
+      /* Ẩn mặc định */
+      background-color: #000;
+      /* Nền đen */
+      color: #fff;
+      /* Chữ trắng */
+      height: 45px;
+      z-index: 10;
+      position: fixed;
+      top: 0;
+      /* Đặt ở vị trí cố định trên cùng */
+      width: 100%;
+      /* Chiếm toàn bộ chiều ngang màn hình */
+      transition: top 0.3s;
+      /* Hiệu ứng chuyển động */
+    }
+
+
+    .navbar-scrolled .navbar-nav .nav-link {
+      color: #0b0000;
+      /* Màu chữ trắng */
+      font-size: 15px;
+    }
+
+    .navbar-scrolled .navbar-nav .nav-link:hover {
+      color: #070000;
+      /* Màu chữ khi hover */
+    }
+
+    /* Tùy chỉnh cho phần bản quyền */
+    .copyright-section {
+            background-color: #666;
+            /* Nền đen */
+            color: #ffffff;
+            /* Chữ màu trắng */
+            padding: 20px;
+            /* Tạo khoảng cách bên trong */
+            text-align: center;
+            /* Căn giữa nội dung */
+            font-size: 14px;
+            /* Kích thước chữ vừa phải */
+            border-top: 0px solid #444;
+            /* Đường viền phía trên */
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .copyright-section a {
+            color: #fff;
+            /* Màu chữ liên kết là trắng */
+            text-decoration: none;
+            /* Xóa gạch chân của liên kết */
+        }
+
+        .copyright-section a:hover {
+            text-decoration: underline;
+            /* Thêm gạch chân khi hover */
+        }
+
+    .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .main-img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .small-img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        .card-title {
+            font-size: 24px;
+            color: #0056b3;
+            font-weight: bold;
+        }
+
+        .card-text {
+            color: #ff9800;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .card ul {
+            list-style-type: none;
+            padding: 0;
+            color: #555;
+        }
+
+        .card ul li {
+            margin: 5px 0;
+        }
+
+        .price-section {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .price-section .badge {
+            font-size: 14px;
+            padding: 5px 10px;
+        }
+
+        .original-price {
+            color: #777;
+            text-decoration: line-through;
+            margin-left: 10px;
+        }
+
+        .discounted-price {
+            color: #e53935;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .booking {
+            margin-top: 20px;
+        }
+
+        .booking .btn {
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: #ff9800;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .heading {
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 30px 0;
+            font-size: 30px;
+            color: #007bff;
+
+        }
+
+        .booking .btn:hover {
+            background-color: #f57c00;
+        }
+
+        .booking p {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .booking p a {
+            color: #e53935;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .booking p a:hover {
+            text-decoration: underline;
+        }
+
+        .chat-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .chat-button .btn {
+            background-color: #2196f3;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 50px;
+        }
+
+        .chat-button .btn:hover {
+            background-color: #1976d2;
+        }
+
+        .card a {
+            text-decoration: none;
+            color: #0056b3;
+            font-weight: bold;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                padding: 15px;
+            }
+
+            .card-title {
+                font-size: 20px;
+            }
+
+            .discounted-price {
+                font-size: 20px;
+            }
+
+            .price-section {
+                font-size: 16px;
+            }
+
+            .booking .btn {
+                font-size: 16px;
+            }
+
+            .booking p {
+                font-size: 14px;
+            }
+        }
+
+        .container {
+            padding-top: 30px;
+            padding-left: 120px;
+            padding-right: 120px;
+            ;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+
+        }
+
+        .container-flex {
+            padding-left: 200px;
+
+        }
+
+        /* Styling for the form */
+        .booking-form {
+            margin-top: 50px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .form-group textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        .btn-submit {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            background-color: #f57c00;
+        }
+        .title-section {
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 130px;
+      /* Tạo khoảng cách trên tiêu đề */
+      margin-bottom: 50px;
+      /* Tạo khoảng cách dưới tiêu đề */
+      color: #333;
+      /* Màu chữ */
+      text-transform: uppercase;
+      /* Chuyển đổi chữ thành chữ in hoa */
+      letter-spacing: 2px;
+      /* Tạo khoảng cách giữa các ký tự */
+      background: linear-gradient(to right, #ff5a5a, #3b88e3);
+      color: white;
+      padding: 50px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar trên -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Du Lịch</a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto d-flex align-items-center">
+          <!-- Biểu tượng điện thoại -->
+          <li class="nav-item">
+            <a class="nav-link" href="tel:+1234567890">
+              <i class="fas fa-phone-alt"></i> Điện Thoại
+            </a>
+          </li>
+          <!-- Biểu tượng địa chỉ -->
+          <li class="nav-item">
+            <a class="nav-link" href="https://maps.google.com/?q=Your+Address">
+              <i class="fas fa-map-marker-alt"></i> Địa Chỉ
+            </a>
+          </li>
+          <!-- Biểu tượng Gmail -->
+          <li class="nav-item">
+            <a class="nav-link" href="mailto:your-email@gmail.com">
+              <i class="fas fa-envelope"></i> Gmail
+            </a>
+          </li>
+          <!-- Biểu tượng đăng nhập -->
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">
+              <i class="fas fa-user"></i> Đăng Nhập
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Navbar dưới -->
+  <nav class="navbar navbar-expand-lg navbar-light navbar-bottom">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="newNavbarNav">
+        <ul class="navbar-nav navbar-left">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Trang Chủ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="gioithieu.html">Giới Thiệu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Tour Du Lịch</a>
+          </li>
+        </ul>
+        <!-- Chữ BeeTravel ở giữa -->
+        <span class="navbar-brand mx-auto bee-travel-logo">BeeTravel</span>
+        <ul class="navbar-nav navbar-right ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Tin Tức</a>
+          </li>
+          <li class="nav-item"></li>
+          <a class="nav-link" href="lienhe.html">Liên Hệ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Dịch Vụ</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Navbar lướt xuống hiện -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-scrolled">
+    <div class="container-fluid">
+      <ul class="navbar-nav navbar-left">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Trang Chủ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Giới Thiệu</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Tour Du Lịch</a>
+        </li>
+      </ul>
+      <span class="navbar-brand mx-auto bee-travel-logo">BeeTravel</span>
+      <ul class="navbar-nav navbar-right ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Tin Tức</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Liên Hệ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Dịch Vụ</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="title-section">
+   Địa Điểm Đặt Xe
+  </div>
+  <div class="card">
+    <div class="row">
+        <!-- Left side: Image -->
+        <div class="col-md-5">
+            <img src="/images/xethue.jpg"
+                class="main-img" alt="Yacht image">
+            <div class="row">
+                <div class="col-6">
+                    <img src="/images/xethue.jpg"
+                        class="small-img" alt="Small image 1">
+                </div>
+                <div class="col-6">
+                    <img src="/images/xethue.jpg"
+                        class="small-img" alt="Small image 2">
+                </div>
+            </div>
+        </div>
+        <!-- Right side: Content -->
+        <div class="col-md-7">
+            <div class="card-body">
+                <h5 class="card-title">Xe Thuê</h5>
+                <p class="card-text">Tuyệt vời với 0 đánh giá</p>
+                <ul>
+                    <li>Nhân sự được quản lý và đào tạo bởi đội ngũ...</li>
+                    <li>Du thuyền 5 sao chuẩn quốc tế...</li>
+                    <li>Nhà hàng diện tích 200m2...</li>
+                </ul>
+                <div class="price-section">
+                    <span class="badge bg-danger">-11%</span>
+                    <span class="original-price"><s>3,950,000</s></span>
+                    <span class="discounted-price">3,500,000</span>
+                </div>
+                <div class="booking">
+                    <a href="#" class="btn btn-warning">Đặt ngay</a>
+                    <p>HOTLINE: <a href="tel:0935999886">19001508</a></p>
+                </div>
+                <ul>
+                    <li>Ra mắt: 2019</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    </div>
+
+    <!-- New form for yacht booking -->
+    <div class="container">
+        <form class="booking-form">
+            <div class="form-group">
+                <label for="name">Họ và Tên</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Số điện thoại</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="date">Ngày đặt</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="guests">Số chỗ ngồi</label>
+                <input type="number" id="guests" name="guests" placeholder="Enter the number of guests" required>
+            </div>
+
+            <div class="form-group">
+                <label for="special">Yêu cầu riêng</label>
+                <textarea id="special" name="special" placeholder="Any special requests (optional)"></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Thuê xe ngay</button>
+        </form>
+
+        <!-- JavaScript for form submission -->
+        <script>
+            document.getElementById('booking-form-form').addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent the default form submission behavior
+
+                // Show success message
+                alert('Cảm ơn bạn! Đơn đặt du thuyền của bạn đã được gửi thành công.');
+
+                // Optionally, you can clear the form fields after submission
+                document.getElementById('booking-form-form').reset();
+            });
+        </script>
+
+
+    </div>
+
+  <div class="copyright-section"></div>
+    <p>Bản quyền nội dung &copy; 2024 thuộc về PhuNgước. Bảo lưu mọi quyền.</p>
+    <p>Ghi rõ nguồn <a href="https://www.fiditour.com" target="_blank">www.PhuNgứơc.com</a>® khi sử dụng lại thông tin
+      từ website này.</p>
+    <p>Giấy phép lữ hành quốc tế: 79-185/2022/TCDL-GP LHQT.</p>
+    <p><a href="https://www.dmca.com" target="_blank">DMCA</a></p>
+  </div>
+</body>
+
+</html>

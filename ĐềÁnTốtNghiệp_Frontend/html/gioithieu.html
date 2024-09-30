@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới Thiệu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- font chữ navbar -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <style>
+        /* Đặt lại các giá trị mặc định của margin và padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            height: 700px;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        /* Phần navbar */
+        .navbar {
+            height: 3 5px;
+            padding: 0 20px;
+            line-height: 35px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            margin-bottom: 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.3);
+            transition: background-color 0.5s ease;
+
+        }
+
+        /* Tùy chỉnh cho các liên kết trong navbar */
+        .navbar-nav .nav-link {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            height: 100%;
+        }
+
+        /* Tùy chỉnh cho biểu tượng trong các liên kết */
+        .navbar-nav .nav-link i {
+            margin-right: 5px;
+            font-size: 12px;
+        }
+
+        /* Chữ BeeTravel ở giữa */
+        .bee-travel-logo {
+            font-size: 24px;
+            /* Tăng kích thước chữ */
+            font-weight: bold;
+            /* Đặt chữ in đậm */
+            color: rgba(9, 0, 0, 0.9);
+            /* Màu chữ trắng */
+            text-align: center;
+        }
+
+
+        /* navbar dưới */
+        .navbar-bottom {
+            margin-top: 35px;
+            background-color: transparent;
+            /* Không có màu nền */
+            border: none;
+            height: 45px;
+            z-index: 9;
+            padding: 0px 200px 0px 200px;
+            position: fixed;
+            /* Đảm bảo navbar luôn ở vị trí cố định */
+            top: 0;
+            /* Bắt đầu ở trên cùng của trang */
+            width: 100%;
+            /* Để chiếm toàn bộ chiều ngang màn hình */
+            transition: top 0.3s;
+            /* Hiệu ứng chuyển động khi ẩn/hiện navbar */
+        }
+
+        .navbar-bottom .navbar-left,
+        .navbar-bottom .navbar-right {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .navbar-bottom .navbar-left {
+            justify-content: flex-start;
+            /* Căn trái */
+        }
+
+        .navbar-bottom .navbar-right {
+            justify-content: flex-end;
+            /* Căn phải */
+        }
+
+        .navbar-bottom .navbar-nav .nav-link {
+            color: rgba(12, 1, 1, 0.8);
+            font-size: 15px;
+            margin: 0 20px;
+            /* Điều chỉnh khoảng cách giữa các chữ */
+        }
+
+        .navbar-bottom .navbar-nav .nav-link:hover {
+            color: rgb(10, 0, 0);
+        }
+
+        .navbar-top {
+            transition: top 0.9s;
+        }
+
+        .navbar-bottom {
+            transition: top 0.9s;
+        }
+
+        /* Navbar lướt xuống hiện */
+        .navbar-scrolled {
+            display: none;
+            /* Ẩn mặc định */
+            background-color: #000;
+            /* Nền đen */
+            color: #fff;
+            /* Chữ trắng */
+            height: 45px;
+            z-index: 10;
+            position: fixed;
+            top: 0;
+            /* Đặt ở vị trí cố định trên cùng */
+            width: 100%;
+            /* Chiếm toàn bộ chiều ngang màn hình */
+            transition: top 0.3s;
+            /* Hiệu ứng chuyển động */
+        }
+
+
+        .navbar-scrolled .navbar-nav .nav-link {
+            color: #0b0000;
+            /* Màu chữ trắng */
+            font-size: 15px;
+        }
+
+        .navbar-scrolled .navbar-nav .nav-link:hover {
+            color: #070000;
+            /* Màu chữ khi hover */
+        }
+
+
+
+        /* Tùy chỉnh cho phần bản quyền */
+        .copyright-section {
+            background-color: #666;
+            /* Nền đen */
+            color: #ffffff;
+            /* Chữ màu trắng */
+            padding: 20px;
+            /* Tạo khoảng cách bên trong */
+            text-align: center;
+            /* Căn giữa nội dung */
+            font-size: 14px;
+            /* Kích thước chữ vừa phải */
+            border-top: 0px solid #444;
+            /* Đường viền phía trên */
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .copyright-section a {
+            color: #fff;
+            /* Màu chữ liên kết là trắng */
+            text-decoration: none;
+            /* Xóa gạch chân của liên kết */
+        }
+
+        .copyright-section a:hover {
+            text-decoration: underline;
+            /* Thêm gạch chân khi hover */
+        }
+
+        /* Phần Giới Thiệu */
+        .about-us {
+            margin-top: 0px;
+            /* Tạo khoảng cách trên tiêu đề */
+            margin-bottom: 0px;
+            /* Tạo khoảng cách dưới tiêu đề */
+            padding: 0px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            /* Đặt lại thành căn giữa hình ảnh */
+            align-items: center;
+            padding: 0px;
+        }
+
+        .image-item {
+            flex: 1;
+            text-align: center;
+            margin: 0px;
+            position: relative;
+        }
+
+        .image-item img {
+            width: 1519px;
+            /* Giảm kích thước hình ảnh nếu cần */
+            height: 550px;
+            display: block;
+            margin: 0 auto;
+            border-radius: 10px;
+            /* Tạo bo tròn góc */
+        }
+
+        .overlay {
+            position: relative;
+            width: 100%;
+            text-align: center;
+        }
+
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 40%;
+            transform: translate(-30%, -40%);
+            color: white;
+            font-size: 30px;
+            /* Tăng kích thước chữ */
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+
+
+        .about-header h2 {
+
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .about-content {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: white;
+            color: #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .about-content h3 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .about-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* Phần hình ảnh */
+        .about-images {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+
+        }
+
+        .about-images .image {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            margin: 10px;
+
+        }
+
+        .about-images .image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 60%;
+            /* Giảm kích thước ảnh xuống 80% của mỗi khung ảnh */
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <!-- Navbar trên -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Du Lịch</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto d-flex align-items-center">
+                    <!-- Biểu tượng điện thoại -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="tel:+1234567890">
+                            <i class="fas fa-phone-alt"></i> Điện Thoại
+                        </a>
+                    </li>
+                    <!-- Biểu tượng địa chỉ -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://maps.google.com/?q=Your+Address">
+                            <i class="fas fa-map-marker-alt"></i> Địa Chỉ
+                        </a>
+                    </li>
+                    <!-- Biểu tượng Gmail -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="mailto:your-email@gmail.com">
+                            <i class="fas fa-envelope"></i> Gmail
+                        </a>
+                    </li>
+                    <!-- Biểu tượng đăng nhập -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">
+                            <i class="fas fa-user"></i> Đăng Nhập
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Navbar dưới -->
+    <nav class="navbar navbar-expand-lg navbar-light navbar-bottom">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="newNavbarNav">
+                <ul class="navbar-nav navbar-left">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Trang Chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tour Du Lịch</a>
+                    </li>
+                </ul>
+                <!-- Chữ BeeTravel ở giữa -->
+                <span class="navbar-brand mx-auto bee-travel-logo">BeeTravel</span>
+                <ul class="navbar-nav navbar-right ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tin Tức</a>
+                    </li>
+                    <li class="nav-item"></li>
+                    <a class="nav-link" href="lienhe.html">Liên Hệ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Dịch Vụ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Navbar lướt xuống hiện -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-scrolled">
+        <div class="container-fluid">
+            <ul class="navbar-nav navbar-left">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Trang Chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Giới Thiệu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Tour Du Lịch</a>
+                </li>
+            </ul>
+            <span class="navbar-brand mx-auto bee-travel-logo">BeeTravel</span>
+            <ul class="navbar-nav navbar-right ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Tin Tức</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="lienhe.html">Liên Hệ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Dịch Vụ</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    </div>
+    <!-- Phần Giới Thiệu -->
+    <section class="about-us">
+        <div class="image-container">
+            <div class="image-item">
+                <div class="overlay">
+                    <img src="https://vcdn1-dulich.vnecdn.net/2021/10/22/49483719-10115915-image-a-11-1634848573982-1634889824-1634891439-1634894866.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=PymvNZNq4Grs13lB7ISvMw"
+                        alt="Cảnh đẹp">
+                    <div class="text">BEE TRAVEL-TẬN TÌNH,CHU ĐÁO TRÊN TỪNG CUNG ĐƯỜNG</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="about-content">
+        <p>
+            Công ty cổ phần PhuNgước chuyên kinh doanh tour du lịch trọn gói trong và ngoài nước, tour Free & Easy,
+            dịch vụ hàng không, khách sạn, Visa, đào tạo các chuyên ngành du lịch. Trong suốt 30 năm hình thành và
+            phát triển, Công ty cổ phần PhuNgước luôn nằm trong Top 10 hãng lữ hành hàng đầu Việt Nam, luôn chăm
+            chút trong từng quy trình phục vụ để bảo đảm đúng chất lượng dịch vụ và giữ vững cam kết với khách hàng.
+            Bảo đảm cung cấp những sản phẩm đã được chọn lọc. Bảo đảm giá cả hợp lí. Bảo đảm phong cách phục vụ
+            nhiệt tình và chu đáo.
+        </p>
+        <div class="about-images">
+            <div class="image">
+                <img src="https://generali.vn/song-nhu-y/kham-pha-nhu-y/hieu-dan-ong-bang-cach-di-du-lich/opengraph-image/1?54bd7a1421006a89"
+                    alt="Image 1">
+                <br>
+                Bảo đảm cung cấp các dịch vụ tốt nhât
+            </div>
+            <div class="image">
+                <img src="https://media.tuyenquangtv.vn/public/file/fb9e3a036ab59c2c016ac3618a0d3aec/092023/hnmo_visa_tourism_26_20230927070156.jpeg"
+                    alt="Image 2">
+                <br>
+                Bảo đảm giá cả hợp lý, thanh toán dễ dàng
+            </div>
+            <div class="image">
+                <img src="https://bizflyportal.mediacdn.vn/thumb_wm/1000,100/bizflyportal/images/khach-hang-muc-tieu-cua-nganh-du-lich-la-ai-2-17096950219859.jpg"
+                    alt="Image 3">
+                <br>
+                Vui lòng khách đến, vừa lòng khách đi
+            </div>
+        </div>
+        <h3>Các Giá Trị Cốt Lõi BEETRAVEL</h3>
+        <div class="about-images">
+            <div class="image">
+                <img src="https://fiditour.com/wp-content/uploads/2022/11/gia-tri-cot-loi_best-quality.svg"
+                    alt="Image 1">
+                <br>
+                Luôn tuân thủ các cam kết chất lượng đã công bố
+            </div>
+            <div class="image">
+                <img src="https://fiditour.com/wp-content/uploads/2022/11/gia-tri-cot-loi_best-service.svg"
+                    alt="Image 2">
+                <br>
+                Phục vụ tận tâm, khách hàng là trên hết
+            </div>
+            <div class="image">
+                <img src="https://fiditour.com/wp-content/uploads/2022/11/gia-tri-cot-loi_best-experience.svg"
+                    alt="Image 3">
+                <br>
+                Nâng cao giá trị trải nghiệm, ngày càng tốt hơn
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="copyright-section">
+        <p>Bản quyền nội dung &copy; 2024 thuộc về PhuNgước. Bảo lưu mọi quyền.</p>
+        <p>Ghi rõ nguồn <a href="https://www.fiditour.com" target="_blank">www.PhuNgứơc.com</a>® khi sử dụng lại thông
+            tin từ website này.</p>
+        <p>Giấy phép lữ hành quốc tế: 79-185/2022/TCDL-GP LHQT.</p>
+        <p><a href="https://www.dmca.com" target="_blank">DMCA</a></p>
+    </div>
+</body>
+
+</html>

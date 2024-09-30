@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- font chữ navbar -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <style>
+        /* Đặt lại các giá trị mặc định của margin và padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            height: 800px;
+        }
+
+        /* Phần navbar */
+        .navbar {
+            height: 35px;
+            padding: 0 20px;
+            line-height: 35px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            margin-bottom: 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.3);
+            transition: background-color 0.5s ease;
+            border-bottom: 0.5px solid rgb(205, 201, 201);
+        }
+
+        /* Tùy chỉnh cho các liên kết trong navbar */
+        .navbar-nav .nav-link {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            height: 100%;
+        }
+
+        /* Tùy chỉnh cho biểu tượng trong các liên kết */
+        .navbar-nav .nav-link i {
+            margin-right: 5px;
+            font-size: 12px;
+        }
+
+        /* Chữ BeeTravel ở giữa */
+        .bee-travel-logo {
+            font-size: 24px;
+            /* Tăng kích thước chữ */
+            font-weight: bold;
+            /* Đặt chữ in đậm */
+            color: rgba(9, 0, 0, 0.9);
+            /* Màu chữ trắng */
+            text-align: center;
+        }
+
+
+        /* navbar dưới */
+        .navbar-bottom {
+            margin-top: 35px;
+            background-color: transparent;
+            /* Không có màu nền */
+            border: none;
+            height: 45px;
+            z-index: 9;
+            padding: 0px 200px 0px 200px;
+            position: fixed;
+            /* Đảm bảo navbar luôn ở vị trí cố định */
+            top: 0;
+            /* Bắt đầu ở trên cùng của trang */
+            width: 100%;
+            /* Để chiếm toàn bộ chiều ngang màn hình */
+            transition: top 0.3s;
+            /* Hiệu ứng chuyển động khi ẩn/hiện navbar */
+        }
+
+        .navbar-bottom .navbar-left,
+        .navbar-bottom .navbar-right {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .navbar-bottom .navbar-left {
+            justify-content: flex-start;
+            /* Căn trái */
+        }
+
+        .navbar-bottom .navbar-right {
+            justify-content: flex-end;
+            /* Căn phải */
+        }
+
+        .navbar-bottom .navbar-nav .nav-link {
+            color: rgba(12, 1, 1, 0.8);
+            font-size: 15px;
+            margin: 0 20px;
+            /* Điều chỉnh khoảng cách giữa các chữ */
+        }
+
+        .navbar-bottom .navbar-nav .nav-link:hover {
+            color: rgb(10, 0, 0);
+        }
+
+        .navbar-top {
+            transition: top 0.9s;
+        }
+
+        .navbar-bottom {
+            transition: top 0.9s;
+        }
+
+        /* Navbar lướt xuống hiện */
+        .navbar-scrolled {
+            display: none;
+            /* Ẩn mặc định */
+            background-color: #000;
+            /* Nền đen */
+            color: #fff;
+            /* Chữ trắng */
+            height: 45px;
+            z-index: 10;
+            position: fixed;
+            top: 0;
+            /* Đặt ở vị trí cố định trên cùng */
+            width: 100%;
+            /* Chiếm toàn bộ chiều ngang màn hình */
+            transition: top 0.3s;
+            /* Hiệu ứng chuyển động */
+        }
+
+
+        .navbar-scrolled .navbar-nav .nav-link {
+            color: #0b0000;
+            /* Màu chữ trắng */
+            font-size: 15px;
+        }
+
+        .navbar-scrolled .navbar-nav .nav-link:hover {
+            color: #070000;
+            /* Màu chữ khi hover */
+        }
+
+
+
+        /* Tùy chỉnh cho header */
+        header {
+            width: 100%;
+            position: relative;
+            /* Để căn search-box đúng vị trí */
+        }
+
+        header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Tùy chỉnh cho carousel */
+        .carousel-item img {
+            width: 100%;
+            max-height: 600px;
+            object-fit: cover;
+            /* Giúp ảnh bao phủ toàn bộ header mà không bị méo */
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Đặt z-index cao để phần tìm kiếm nằm trên carousel */
+        .search-box {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        .search-box input[type="text"],
+        .search-box input[type="date"],
+        .search-box button {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            padding: 10px;
+            margin: 5px 0;
+        }
+
+        .search-box button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+
+        /* Tùy chỉnh cho footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+         /* Tùy chỉnh cho phần tiêu đề liên hệ */
+.title-section {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 100px; /* Tạo khoảng cách trên tiêu đề */
+    margin-bottom: 50px; /* Tạo khoảng cách dưới tiêu đề */
+    color: #333; /* Màu chữ */
+    text-transform: uppercase; /* Chuyển đổi chữ thành chữ in hoa */
+    letter-spacing: 2px; /* Tạo khoảng cách giữa các ký tự */
+}
+   /* Tùy chỉnh cho phần Google Map */
+.map-container {
+    width: 100%;
+    height: 400px; /* Bạn có thể điều chỉnh chiều cao tùy ý */
+    margin-top: 30px; /* Tạo khoảng cách trên cho bản đồ */
+    display: flex;
+    justify-content: center; /* Căn giữa bản đồ */
+    align-items: center;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 10px; /* Thêm góc bo cho bản đồ */
+}
+   /* Tùy chỉnh cho phần thông tin liên lạc */
+.contact-info {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.contact-info h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contact-info p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #666;
+}
+
+.contact-info a {
+    color: #333;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.contact-info i {
+    margin-right: 10px;
+}
+
+.contact-info-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.contact-info-container h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contact-info-container .contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.contact-info-container .contact-item i {
+    margin-right: 10px;
+    font-size: 20px;
+    color: #333;
+}
+
+.contact-info-container .contact-item a {
+    color: #333;
+    text-decoration: none;
+}
+
+.contact-info-container .contact-item a:hover {
+    text-decoration: underline;
+}
+/* Tùy chỉnh cho phần bản quyền */
+.copyright-section {
+    background-color: #666; /* Nền đen */
+    color: #fff; /* Chữ màu trắng */
+    padding: 20px; /* Tạo khoảng cách bên trong */
+    text-align: center; /* Căn giữa nội dung */
+    font-size: 14px; /* Kích thước chữ vừa phải */
+    border-top: 0px solid #444; /* Đường viền phía trên */
+}
+
+.copyright-section a {
+    color: #fff; /* Màu chữ liên kết là trắng */
+    text-decoration: none; /* Xóa gạch chân của liên kết */
+}
+
+.copyright-section a:hover {
+    text-decoration: underline; /* Thêm gạch chân khi hover */
+}
+/* Căn chỉnh phần thông tin chi nhánh */
+.branch-info {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.branch {
+    text-align: left;
+    max-width: 30%;
+}
+
+.branch h4 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.branch p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.branch i {
+    margin-right: 5px;
+    color: #555;
+}
+
+/* Đảm bảo icon và văn bản căn chỉnh đúng */
+.branch p i {
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+    </style>
+
+</head>
+
+<body>
+    <!-- Navbar trên -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Du Lịch</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto d-flex align-items-center">
+                    <!-- Biểu tượng điện thoại -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="tel:+1234567890">
+                            <i class="fas fa-phone-alt"></i> Điện Thoại
+                        </a>
+                    </li>
+                    <!-- Biểu tượng địa chỉ -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://maps.google.com/?q=Your+Address">
+                            <i class="fas fa-map-marker-alt"></i> Địa Chỉ
+                        </a>
+                    </li>
+                    <!-- Biểu tượng Gmail -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="mailto:your-email@gmail.com">
+                            <i class="fas fa-envelope"></i> Gmail
+                        </a>
+                    </li>
+                    <!-- Biểu tượng đăng nhập -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">
+                            <i class="fas fa-user"></i> Đăng Nhập
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Navbar dưới -->
+    <nav class="navbar navbar-expand-lg navbar-light navbar-bottom">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="newNavbarNav">
+                <ul class="navbar-nav navbar-left">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Trang Chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gioithieu.html">Giới Thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tour Du Lịch</a>
+                    </li>
+                </ul>
+                <!-- Chữ BeeTravel ở giữa -->
+                <span class="navbar-brand mx-auto bee-travel-logo">BeeTravel</span>
+                <ul class="navbar-nav navbar-right ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tin Tức</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Dịch Vụ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Navbar lướt xuống hiện -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-scrolled">
+        <div class="container-fluid">
+            <ul class="navbar-nav navbar-left">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Trang Chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="gioithieu.html">Giới Thiệu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Tour Du Lịch</a>
+                </li>
+            </ul>
+            <span class="navbar-brand mx-auto bee-travel-logo">BeeTravel</span>
+            <ul class="navbar-nav navbar-right ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Tin Tức</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Liên Hệ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Dịch Vụ</a>
+                </li>
+            </ul>
+        </div>
+       
+    </nav>
+    <div class="title-section">
+        CHÚNG TÔI CÓ THỂ GIÚP GÌ CHO BẠN
+    </div>
+    
+    <!-- Phần Google Map -->
+    <div class="map-container">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3833.7648404439926!2d108.22017991536189!3d16.04707908888588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219b91f13e68f%3A0x83cf7e1a6f32d44c!2zVGjhuqFuaCBwaOG7kSDEkMO0bmcgTmjhuq10LCDEkMO0bmcgU8ahbiBIb8OgbSwgROG6oW5nIE7hurVuZw!5e0!3m2!1svi!2s!4v1689156453377!5m2!1svi!2s" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+    <!-- Phần thông tin chi nhánh -->
+<div class="branch-info">
+    <div class="branch">
+        <h4>Chi nhánh</h4>
+        <p>
+            <i class="fas fa-map-marker-alt"></i>TP.HCM
+        </p>
+        <p>
+            <i class="fas fa-map-marker-alt"></i>TP. Hồ Chí Minh
+        </p>
+    </div>
+    <div class="branch">
+        <h4>Trụ sở chính Đà Nẵng</h4>
+        <p>
+            <i class="fas fa-map-marker-alt"></i>  Đà Nẵng
+        </p>
+        <p>
+            <i class="fas fa-phone-alt"></i> 1900 1508
+        </p>
+        <p>
+            <i class="fas fa-envelope"></i> PhuNgước@gmail.com
+        </p>
+    </div>
+    <div class="branch">
+        <h4>Chi nhánh Hà Nội</h4>
+        <p>
+            <i class="fas fa-map-marker-alt"></i> TP. Hà Nội
+        </p>
+    </div>
+</div>
+
+    <!-- Phần bản quyền -->
+<div class="copyright-section">
+    <p>Bản quyền nội dung &copy; 2024 thuộc về PhuNgước. Bảo lưu mọi quyền.</p>
+    <p>Ghi rõ nguồn <a href="https://www.fiditour.com" target="_blank">www.PhuNgứơc.com</a>® khi sử dụng lại thông tin từ website này.</p>
+    <p>Giấy phép lữ hành quốc tế: 79-185/2022/TCDL-GP LHQT.</p>
+    <p><a href="https://www.dmca.com" target="_blank">DMCA</a></p>
+</div>
+    
+</body>
+
+</html>
