@@ -1,5 +1,3 @@
-﻿-- Xóa cơ sở dữ liệu nếu đã tồn tại
-DROP DATABASE IF EXISTS EasyTravels;
 
 -- Tạo cơ sở dữ liệu EasyTravels
 CREATE DATABASE EasyTravel;
